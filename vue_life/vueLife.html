@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <title>生命週期，取得遠程數據</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <ul>
+        <li v-for="post in posts" :key="post.id">{{post.title}}</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  <!-- <script src="./index.js"></script> -->
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          posts: []
+        };
+      },
+      created() {
+        this.fetchPosts()
+      },
+      methods: {
+        async fetchPosts() {
+          // 使用fetch 取得遠端資料
+          // 使用await獲取fetch的返回結果
+          const res = await fetch('./posts.json')
+          const postsData = await res.json()
+          this.posts = postsData
+        }
+      },
+    });
+    app.mount("#app");
+  </script>
+</body>
+
+</html>
