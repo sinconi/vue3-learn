@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <title>表單相關修飾符</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 一般用法 -->
+    <input type="text" v-model="username">
+    <p>{{username}}</p>
+
+    <!-- 失去焦點後才顯示 -->
+    <!-- 把input @input改成@change事件 -->
+    <input type="text" v-model.lazy="username2">
+    <p>{{username2}}</p>
+
+    <!-- 修飾浮可以合用 -->
+    <!-- trim 可以把空白拿掉 -->
+    <input type="text" v-model.lazy.trim="username2">
+    <p>{{username2}}</p>
+
+    <!-- 把輸入匡轉換為number類型 -->
+    <input type="text" v-model.number="year">
+    <p>{{year}}</p>
+    <input type="number" v-model="year">
+    <p>{{year}}</p>
+  </div>
+
+
+
+  <script src="./index.js"></script>
+  <!-- <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+
+        };
+      },
+      watch: {
+
+      },
+      computed: {
+
+      },
+      methods: {
+
+      },
+    });
+    app.mount("#app");
+  </script> -->
+</body>
+
+</html>

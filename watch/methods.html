@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <title>表單事件監聽</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="input-filed">
+      <label for="username">用戶名：</label>
+      <!-- 加上:value="username" 才可以同步 -->
+      <input :value="username" type="text" id="username" @input="handleInput">
+      <button @click="clear">reset</button>
+    </div>
+    <div class="result">
+      <p>您輸入的用戶名是：{{ username }}</p>
+    </div>
+  </div>
+
+
+
+  <!-- <script src="./index.js"></script> -->
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          username: ''
+        };
+      },
+      watch: {
+
+      },
+      computed: {
+
+      },
+      methods: {
+        handleInput(e) {
+          this.username = e.target.value
+        },
+        clear() {
+          this.username = ""
+        }
+      },
+    });
+    app.mount("#app");
+  </script>
+</body>
+
+</html>

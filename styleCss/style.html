@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <title>文字加減</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1 :style="textBigSmall">這是一段文字</h1>
+    <button @click="fontSize += 1">A</button>
+    <button @click="fontSize -= 1">a</button>
+  </div>
+
+
+
+  <!-- <script src="./index.js"></script> -->
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          fontSize: 16
+        };
+      },
+      watch: {
+
+      },
+      computed: {
+        textBigSmall() {
+          return {
+            color: 'blue',
+            fontSize: this.fontSize + 'px'
+          }
+        }
+      },
+      methods: {
+
+      },
+    });
+    app.mount("#app");
+  </script>
+</body>
+
+</html>
